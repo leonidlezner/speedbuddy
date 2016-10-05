@@ -40,22 +40,26 @@ def main():
     
   points = database.points
   
-  coordinates = [47.532554, 8.709355]
+  while True:
+    
+    coordinates = input('C>')#[47.532554, 8.709355]
+    
+    coordinates = [float(c) for c in coordinates.split(',')]
   
-  coordinates.reverse()
+    coordinates.reverse()
   
-  max_distance = 500
+    max_distance = 200
 
-  query = {
-    'loc':
-      {'$near': SON([('$geometry', SON([('type', 'Point'), ('coordinates', coordinates)])), ('$maxDistance', max_distance)])
+    query = {
+      'loc':
+        {'$near': SON([('$geometry', SON([('type', 'Point'), ('coordinates', coordinates)])), ('$maxDistance', max_distance)])
+      }
     }
-  }
   
-  print('Searching...')
+    print('Searching...')
   
-  for point in points.find(query):
-    print(point['loc']['coordinates'], distance_on_unit_sphere(point['loc']['coordinates'][1], point['loc']['coordinates'][0], coordinates[1], coordinates[0]))
+    for point in points.find(query):
+      print(point['loc']['coordinates'], distance_on_unit_sphere(point['loc']['coordinates'][1], point['loc']['coordinates'][0], coordinates[1], coordinates[0]))
   
       
 if __name__ == '__main__':

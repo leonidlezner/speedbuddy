@@ -9,10 +9,14 @@ class GeoFormatException(Exception):
 
 class GeodataImporter:
     def __init__(self, db_collection=None):
+        self.points = []
         self.total_points = 0
         self.db_collection = db_collection
 
     def import_row(self, row):
+        #self.points.append(row)
+        #return
+
         if self.db_collection is not None:
           self.db_collection.insert({
             'name': row[2],
@@ -25,6 +29,8 @@ class GeodataImporter:
           })
 
     def load(self, filename, speed=0, mobile=False):
+        print('Loading file {}'.format(filename))
+
         # Open the csv file and iterate through the lines
         with open(filename, 'r', encoding="ISO-8859-1") as csvfile:
             row_reader = csv.reader(csvfile, delimiter=',', quotechar='"')
@@ -67,7 +73,7 @@ def import_demo():
 
     importer.load('./garmin-mobil/Blitzer_mobil_Abstand.csv', speed=0, mobile=True)
     
-
+    #print(importer.points)
 
 
 if __name__ == '__main__':
