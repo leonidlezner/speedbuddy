@@ -1,0 +1,41 @@
+{
+  "files":
+  [
+    {
+      "source": "garmin/Camera.csv"
+    },
+    {
+      "source": "garmin/Speed.csv"
+    },
+    {
+      "source": "garmin/Tunnel.csv"
+    },
+    {
+      "source": "garmin/Camera_60.csv"
+    },
+    {
+      "source": "garmin/Camera_80.csv"
+    },
+    {
+      "source": "garmin/Camera_100.csv"
+    },
+    {
+      "source": "garmin/Redlight_30.csv"
+    },
+    {
+      "source": "garmin/Redlight_40.csv"
+    },
+    {
+      "source": "garmin/Redlight_50.csv"
+    },
+    {
+      "source": "garmin/Redlight_60.csv"
+    },
+    {
+      "source": "garmin/Redlight_70.csv"
+    },
+    {
+      "source": "garmin/Redlight_80.csv"
+    }
+  ]
+}

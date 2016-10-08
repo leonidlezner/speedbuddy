@@ -1,5 +1,4 @@
 import csv
-from bson.son import SON
 import pymongo
 from pymongo import MongoClient
 
@@ -7,28 +6,26 @@ from pymongo import MongoClient
 class GeoFormatException(Exception):
     pass
 
-class GeodataImporter:
+
+class CamImporter:
     def __init__(self, db_collection=None):
         self.points = []
         self.total_points = 0
         self.db_collection = db_collection
 
     def import_row(self, row):
-        #self.points.append(row)
-        #return
-
         if self.db_collection is not None:
-          self.db_collection.insert({
-            'name': row[2],
-            'speed': row[3],
-            'mobile': row[4],
-            'loc': {
-              'type': 'Point',
-              'coordinates': [row[0], row[1]],
-            }
-          })
+            self.db_collection.insert({
+                'name': row[2],
+                'speed': row[3],
+                'mobile': row[4],
+                'loc': {
+                    'type': 'Point',
+                    'coordinates': [row[0], row[1]],
+                }
+            })
 
-    def load(self, filename, speed=0, mobile=False):
+    def load_file(self, file):
         print('Loading file {}'.format(filename))
 
         # Open the csv file and iterate through the lines
@@ -50,9 +47,7 @@ class GeodataImporter:
                 self.import_row(geo_point)
 
 
-
-
-
+'''
 def import_demo():
     mongo = MongoClient()
     database = mongo['speedcams']
@@ -78,4 +73,4 @@ def import_demo():
 
 if __name__ == '__main__':
     import_demo()
-
+'''

@@ -1,7 +1,9 @@
 # Byte-compiled / optimized / DLL files
 
-garmin-mobil/**
-garmin/**
+data/garmin-mobil/**
+data/garmin/**
+
+.idea
 
 __pycache__/
 *.py[cod]
