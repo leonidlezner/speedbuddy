@@ -1,7 +1,6 @@
 from bson.son import SON
 import pymongo
 from pymongo import MongoClient
-
 import math
 
 # Source http://www.johndcook.com/blog/python_longitude_latitude/
