@@ -1,41 +1,164 @@
 {
-  "files":
-  [
+  "files": [
     {
+      "mobile": false,
       "source": "garmin/Camera.csv"
     },
     {
+      "mobile": false,
       "source": "garmin/Speed.csv"
     },
     {
+      "mobile": false,
+      "speed": 10,
+      "source": "garmin/Speed_10.csv"
+    },
+    {
+      "mobile": false,
+      "speed": 20,
+      "source": "garmin/Speed_20.csv"
+    },
+    {
+      "mobile": false,
+      "speed": 30,
+      "source": "garmin/Speed_30.csv"
+    },
+    {
+      "mobile": false,
+      "speed": 40,
+      "source": "garmin/Speed_40.csv"
+    },
+    {
+      "mobile": false,
+      "speed": 50,
+      "source": "garmin/Speed_50.csv"
+    },
+    {
+      "mobile": false,
+      "speed": 60,
+      "source": "garmin/Speed_60.csv"
+    },
+    {
+      "mobile": false,
+      "speed": 70,
+      "source": "garmin/Speed_70.csv"
+    },
+    {
+      "mobile": false,
+      "speed": 80,
+      "source": "garmin/Speed_80.csv"
+    },
+    {
+      "mobile": false,
+      "speed": 90,
+      "source": "garmin/Speed_90.csv"
+    },
+    {
+      "mobile": false,
+      "speed": 100,
+      "source": "garmin/Speed_100.csv"
+    },
+    {
+      "mobile": false,
+      "speed": 120,
+      "source": "garmin/Speed_120.csv"
+    },
+    {
+      "mobile": false,
+      "speed": 130,
+      "source": "garmin/Speed_130.csv"
+    },
+    {
+      "mobile": false,
       "source": "garmin/Tunnel.csv"
     },
     {
-      "source": "garmin/Camera_60.csv"
-    },
-    {
-      "source": "garmin/Camera_80.csv"
-    },
-    {
+      "mobile": false,
       "source": "garmin/Camera_100.csv"
     },
     {
+      "mobile": false,
+      "speed": 30,
       "source": "garmin/Redlight_30.csv"
     },
     {
-      "source": "garmin/Redlight_40.csv"
-    },
-    {
+      "mobile": false,
+      "speed": 50,
       "source": "garmin/Redlight_50.csv"
     },
     {
+      "mobile": false,
+      "speed": 60,
       "source": "garmin/Redlight_60.csv"
     },
     {
+      "mobile": false,
+      "speed": 70,
       "source": "garmin/Redlight_70.csv"
     },
     {
-      "source": "garmin/Redlight_80.csv"
+      "mobile": true,
+      "speed": 10,
+      "source": "garmin-mobil/Blitzer_mobil_10.csv"
+    },
+    {
+      "mobile": true,
+      "speed": 20,
+      "source": "garmin-mobil/Blitzer_mobil_20.csv"
+    },
+    {
+      "mobile": true,
+      "speed": 30,
+      "source": "garmin-mobil/Blitzer_mobil_30.csv"
+    },
+    {
+      "mobile": true,
+      "speed": 40,
+      "source": "garmin-mobil/Blitzer_mobil_40.csv"
+    },
+    {
+      "mobile": true,
+      "speed": 50,
+      "source": "garmin-mobil/Blitzer_mobil_50.csv"
+    },
+    {
+      "mobile": true,
+      "speed": 60,
+      "source": "garmin-mobil/Blitzer_mobil_60.csv"
+    },
+    {
+      "mobile": true,
+      "speed": 80,
+      "source": "garmin-mobil/Blitzer_mobil_80.csv"
+    },
+    {
+      "mobile": true,
+      "speed": 90,
+      "source": "garmin-mobil/Blitzer_mobil_90.csv"
+    },
+    {
+      "mobile": true,
+      "speed": 100,
+      "source": "garmin-mobil/Blitzer_mobil_100.csv"
+    },
+    {
+      "mobile": true,
+      "speed": 110,
+      "source": "garmin-mobil/Blitzer_mobil_110.csv"
+    },
+    {
+      "mobile": true,
+      "speed": 120,
+      "source": "garmin-mobil/Blitzer_mobil_120.csv"
+    },
+    {
+      "mobile": true,
+      "speed": 130,
+      "source": "garmin-mobil/Blitzer_mobil_130.csv"
+    },
+    {
+      "mobile": true,
+      "source": "garmin-mobil/Blitzer_mobil_Abstand.csv"
     }
   ]
 }
