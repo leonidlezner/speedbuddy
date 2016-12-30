@@ -26,10 +26,10 @@ class SpeedBuddy(MainRunner):
         time.sleep(1)
 
     def load_gps_provider(self, provider_name):
-        if not self.gps_providers.has_key(provider_name):
+        if provider_name not in self.gps_providers:
             raise RuntimeError('Provider {} not found!'.format(provider_name))
 
-        logging.debug('Loading GPS provider "{}"!'.format(provider_name))
+        logging.debug('GPS provider set to "{}".'.format(provider_name))
 
         self.gps_provider = self.gps_providers[provider_name]()
 
