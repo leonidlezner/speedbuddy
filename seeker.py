@@ -1,7 +1,5 @@
 from bson.son import SON
-import pymongo
 from pymongo import MongoClient
-import argparse
 import logging
 import math
 
@@ -66,22 +64,3 @@ class Seeker(object):
 
         # Remember to multiply arc by the radius of the earth in your favorite set of units to get length.
         return arc * 6371 * 1000
-
-
-def main(arguments):
-    seeker = Seeker(db_name=arguments.db)
-
-    res = seeker.find(longitude=11.58731, latitude=50.92689, max_distance=1200)
-
-    print(res)
-
-
-if __name__ == '__main__':
-    # Create the argument parser
-    parser = argparse.ArgumentParser()
-
-    #parser.add_argument('gps', help='GPS provider (record, gpsd)')
-    parser.add_argument('-b', '--db', help='Database name', default='speedcams')
-    parser.add_argument('-v', '--verbose', help='Increase output verbosity', action="store_true")
-
-    main(parser.parse_args())
