@@ -8,40 +8,70 @@ import time
 from gps_provider.record import RecordProvider
 from gps_provider.gpsd import GpsdProvider
 
+from notificator.console import ConsoleNotificator
+from notificator.rgbled import RgbLedNotificator
 
 class SpeedBuddy(MainRunner):
     def __init__(self, db_name):
         MainRunner.__init__(self)
         self.seeker = Seeker(db_name=db_name)
         self.gps_provider = None
+        self.notificators = []
+        self.distance = 200
 
-        self.gps_providers = {
+        self.gps_provider_list = {
             'gpsd': GpsdProvider,
             'record': RecordProvider
         }
 
+        self.notificator_list = {
+            'console': ConsoleNotificator,
+            'rgbled': RgbLedNotificator
+        }
+
     def loop(self):
         current_position = self.gps_provider.next()
-        print(current_position)
+
+        if current_position is not None:
+            cameras = self.seeker.find(current_position['longitude'], current_position['latitude'], self.distance)
+
+            if len(cameras) > 0:
+                for notificator in self.notificators:
+                    notificator.notify(cameras)
+
         time.sleep(1)
 
-    def load_gps_provider(self, provider_name):
-        if provider_name not in self.gps_providers:
+    def set_gps_provider(self, provider_name):
+        if provider_name not in self.gps_provider_list:
             raise RuntimeError('Provider {} not found!'.format(provider_name))
 
         logging.debug('GPS provider set to "{}".'.format(provider_name))
 
-        self.gps_provider = self.gps_providers[provider_name]()
+        self.gps_provider = self.gps_provider_list[provider_name]()
+
+    def add_notificator(self, notificator_name):
+        if notificator_name not in self.notificator_list:
+            raise RuntimeError('Notificator {} not found!'.format(notificator_name))
+
+        self.notificators.append(self.notificator_list[notificator_name]())
+
+        logging.debug('Added notificator "{}".'.format(notificator_name))
 
     def cleanup(self):
         if self.gps_provider is not None:
             del self.gps_provider
 
+        for notificator in self.notificators:
+            del notificator
+
 
 def main(arguments):
     speedbuddy = SpeedBuddy(db_name=arguments.db)
 
-    speedbuddy.load_gps_provider(provider_name=arguments.gps)
+    speedbuddy.set_gps_provider(provider_name=arguments.gps)
+
+    speedbuddy.add_notificator('console')
+    speedbuddy.add_notificator('rgbled')
 
     speedbuddy.start()
 

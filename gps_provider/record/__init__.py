@@ -9,4 +9,4 @@ class RecordProvider(gps_provider.GPSProvider):
         pass
 
     def next(self):
-        pass
+        return {'longitude': 23.58728, 'latitude': 46.77467}
