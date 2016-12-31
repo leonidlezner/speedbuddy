@@ -11,13 +11,18 @@ from gps_provider.gpsd import GpsdProvider
 from notificator.console import ConsoleNotificator
 from notificator.rgbled import RgbLedNotificator
 
+
 class SpeedBuddy(MainRunner):
-    def __init__(self, db_name):
+    """
+    Main class for the speedbuddy application
+    """
+
+    def __init__(self, db_name, distance=200):
         MainRunner.__init__(self)
         self.seeker = Seeker(db_name=db_name)
         self.gps_provider = None
         self.notificators = []
-        self.distance = 200
+        self.distance = distance
 
         self.gps_provider_list = {
             'gpsd': GpsdProvider,
@@ -53,9 +58,9 @@ class SpeedBuddy(MainRunner):
         if notificator_name not in self.notificator_list:
             raise RuntimeError('Notificator {} not found!'.format(notificator_name))
 
-        self.notificators.append(self.notificator_list[notificator_name]())
-
         logging.debug('Added notificator "{}".'.format(notificator_name))
+
+        self.notificators.append(self.notificator_list[notificator_name]())
 
     def cleanup(self):
         if self.gps_provider is not None:
