@@ -26,6 +26,8 @@ class RecordProvider(gps_provider.GPSProvider):
     
         next_value = {'longitude': next_point.longitude, 'latitude': next_point.latitude}
 
+        print(next_value)
+
         self.current_point += 1
 
         if self.current_point >= self.max_points:
