@@ -78,6 +78,10 @@
     },
     {
       "mobile": false,
+      "source": "garmin/Redlight.csv"
+    },
+    {
+      "mobile": false,
       "speed": 30,
       "source": "garmin/Redlight_30.csv"
     },

@@ -18,7 +18,8 @@ class Seeker(object):
         # Construct the query
         query = {
             'loc': {'$near': SON([('$geometry', SON([('type', 'Point'), ('coordinates', [longitude, latitude])])),
-                                  ('$maxDistance', max_distance)])}
+                                  ('$maxDistance', max_distance)])},
+            'mobile': False
         }
 
         found_points = self.points.find(query)
@@ -64,3 +65,5 @@ class Seeker(object):
 
         # Remember to multiply arc by the radius of the earth in your favorite set of units to get length.
         return arc * 6371 * 1000
+
+

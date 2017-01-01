@@ -1,13 +1,10 @@
 from seeker import Seeker
 from mainrunner import MainRunner
-
 import argparse
 import logging
 import time
-
 from gps_provider.record import RecordProvider
 from gps_provider.gpsd import GpsdProvider
-
 from notificator.console import ConsoleNotificator
 from notificator.rgbled import RgbLedNotificator
 
@@ -71,7 +68,7 @@ class SpeedBuddy(MainRunner):
 
 
 def main(arguments):
-    speedbuddy = SpeedBuddy(db_name=arguments.db)
+    speedbuddy = SpeedBuddy(db_name=arguments.db, distance=200)
 
     speedbuddy.set_gps_provider(provider_name=arguments.gps)
 
