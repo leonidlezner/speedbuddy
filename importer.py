@@ -78,9 +78,9 @@ class Importer(object):
                 line_counter += 1
 
                 if len(row) > 3:
-                    scdb_id = row[3].replace('[', '').replace(']', '')
+                    cam_id = row[3].replace('[', '').replace(']', '')
                 else:
-                    scdb_id = 0
+                    cam_id = ''
 
                 # Longitude
                 longitude = float(row[0])
@@ -95,7 +95,7 @@ class Importer(object):
                     'name': description,
                     'speed': speed,
                     'mobile': mobile_cam,
-                    'scdb_id': scdb_id,
+                    'cam_id': cam_id,
                     'loc': {
                         'type': 'Point',
                         'coordinates': [longitude, latitude],
